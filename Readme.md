@@ -41,6 +41,8 @@ class Persona{
 La clase *Direccion*:
 
 ```java
+import com.iesvdc.acceso.modelos.Localidad;
+
 class Direccion{
     private String calle;
     private int numero;
