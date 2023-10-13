@@ -31,7 +31,7 @@ public class Direcciones {
     }
 
     public void generate(int num_dire){
-        if (this.calles != null || this.locals != null){
+        if (this.calles != null && this.locals != null){
             this.direcciones = new ArrayList<Direccion>();
             List<Localidad> localidades = this.locals.getLocalidades();
             Random num = new Random();
