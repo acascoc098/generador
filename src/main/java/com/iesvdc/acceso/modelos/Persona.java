@@ -11,7 +11,16 @@ public class Persona{
     private String email;
     private LocalDate fechanaci;
     private Direcciones direcciones;
-    
+
+    public Persona(String nombre, String apellido1, String dni, String email, LocalDate fechanaci, Direcciones direcciones) {
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.dni = dni;
+        this.email = email;
+        this.fechanaci = fechanaci;
+        this.direcciones = direcciones;
+    }
+
     public String getNombre() {
         return nombre;
     }
