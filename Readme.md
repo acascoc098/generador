@@ -42,7 +42,7 @@ La clase *Direccion*:
 class Direccion{
     private String calle;
     private int numero;
-    private Localidad.localidad;
+    private Localidad localidad;
 }
 ```
 
