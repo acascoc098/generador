@@ -2,10 +2,6 @@ package com.iesvdc.acceso;
 
 import com.iesvdc.acceso.modelos.Localidades;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )

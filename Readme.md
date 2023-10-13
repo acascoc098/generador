@@ -29,7 +29,9 @@ La clase *Persona*:
 ```java
 class Persona{
     private String nombre;
-    private String apellido;
+    private String apellido1;
+    private String apellido2;
+    private String dni;
     private String email;
     private LocalFate fechanaci;
     private List <Direccion> direcciones;
