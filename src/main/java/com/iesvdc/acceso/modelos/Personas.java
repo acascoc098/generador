@@ -19,7 +19,18 @@ public class Personas {
     private List<String> apellidos;
     private Direcciones direcc;
 
-    public void load(String nom_muj_filename,String nom_homb_filename,String apellido_filename, String locals_filename, String calles_filename){
+    public  Personas(){
+        this.personas = new ArrayList<Persona>();
+    }
+    public Personas(List<Persona> personas, List<String> nom_muj, List<String> nom_hom, List<String> apellidos, Direcciones direcc) {
+        this.personas = personas;
+        this.nom_muj = nom_muj;
+        this.nom_hom = nom_hom;
+        this.apellidos = apellidos;
+        this.direcc = direcc;
+    }
+
+    public void load(String nom_muj_filename, String nom_homb_filename, String apellido_filename, String locals_filename, String calles_filename){
 
         try {
             //this.personas = new ArrayList<Persona>();
@@ -28,6 +39,7 @@ public class Personas {
             this.apellidos = Files.readAllLines(Paths.get(apellido_filename), StandardCharsets.UTF_8);
             this.direcc = new Direcciones();
             this.direcc.load(locals_filename,calles_filename);
+            this.direcc.generate(100);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -40,14 +52,21 @@ public class Personas {
             Random dado = new Random();
             for (int i = 0; i < num_perso; i++) {
                 if (dado.nextInt(2) == 0){ //También lo podemos hacer con (ThreadLocalRandom.current().nextInt(2) == 0), junto con los nombres y apellidos
+                                                  //en una sentencia con ?:
                     //Nombre y apellidos
                     String nombrem = this.nom_muj.get(dado.nextInt(nom_muj.size()));
                     String apellido = this.apellidos.get(dado.nextInt(apellidos.size()));
 
-                    List<Direccion> dire = new ArrayList<>(dado.nextInt(3));
+                    List<Direccion> dire = new ArrayList<>(dado.nextInt(3)+1);
                     for (int j = 0; j < dire.size(); j++) {
                         dire.add(direcs.get(dado.nextInt(direcs.size())));
                     }
+
+                    /*Añadiendo un método a Direcciones
+                    Direcciones dir = new Direcciones();
+                    dir.addD();*/
+
+                    //Direccion dir = direcc.getDirecciones().get(ThreadLocalRandom.current().nextInt(direcc.getDirecciones().size()));
                     //Direccion direc = direcs.get(dado.nextInt(direcs.size()));
 
                     //Creación dni
@@ -93,6 +112,14 @@ public class Personas {
             }
 
         }
+    }
+
+    public List<Persona> getPersonas() {
+        return personas;
+    }
+
+    public void setPersonas(List<Persona> personas) {
+        this.personas = personas;
     }
 
     private char calcularletra(int dni){

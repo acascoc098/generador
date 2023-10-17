@@ -10,7 +10,7 @@ public class Persona{
     private String dni;
     private String email;
     private LocalDate fechanaci;
-    private Direcciones direcciones;
+    private List<Direccion> direcciones;
 
     public Persona(String nombre, String apellido1, String dni, String email, LocalDate fechanaci, Direcciones direcciones) {
         this.nombre = nombre;
@@ -18,7 +18,7 @@ public class Persona{
         this.dni = dni;
         this.email = email;
         this.fechanaci = fechanaci;
-        this.direcciones = direcciones;
+        this.direcciones = (List<Direccion>) direcciones;
     }
 
     public String getNombre() {
@@ -51,10 +51,25 @@ public class Persona{
     public void setFechanaci(LocalDate fechanaci) {
         this.fechanaci = fechanaci;
     }
-    public Direcciones getDirecciones() {
+
+    public List<Direccion> getDirecciones() {
         return direcciones;
     }
-    public void setDirecciones(Direcciones direcciones) {
+
+    public void setDirecciones(List<Direccion> direcciones) {
         this.direcciones = direcciones;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                " nombre='" + getNombre() + "'" +
+                ", apellido='" + getApellido1() + "'" +
+                ", dni='" + getDni() + "'" +
+                ", fdn='" + getFechanaci() + "'" +
+                ", direcciones='" + getDirecciones() + "'" +
+                "}";
+    }
+
+
 }

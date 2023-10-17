@@ -14,10 +14,15 @@ public class Direcciones {
     private List<String> calles;
 
     public Direcciones() {
+        direcciones = new ArrayList<Direccion>();
     }
 
     public Direcciones(List<Direccion> direcciones) {
         this.direcciones = direcciones;
+    }
+
+    public  void addD(Direccion d){
+        direcciones.add(d);
     }
 
     public void load(String locals_filename,String calles_filename){
