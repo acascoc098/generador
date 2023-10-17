@@ -39,17 +39,49 @@ public class Personas {
             Random dado = new Random();
             for (int i = 0; i < num_perso; i++) {
                 if (dado.nextInt(2) == 0){
+                    //Nombre y apellidos
                     String nombrem = this.nom_muj.get(dado.nextInt(nom_muj.size()));
                     String apellido = this.apellidos.get(dado.nextInt(apellidos.size()));
-                    Direccion direc = direcs.get(dado.nextInt(direcs.size()));
+
+                    List<Direccion> dire = new ArrayList<>(dado.nextInt(3));
+                    for (int j = 0; j < dire.size(); j++) {
+                        dire.add(direcs.get(dado.nextInt(direcs.size())));
+                    }
+                    //Direccion direc = direcs.get(dado.nextInt(direcs.size()));
+
+                    //Creación dni
                     int numdni = dado.nextInt(10000000);
                     String dni = Integer.toString(numdni) + calcularletra(numdni);
 
-                    //Persona person = new Persona(nombrem,apellido,dni,"", LocalDate.now(),direcs);
+                    //Creación fecha de nacimiento
+                    Random ran = new Random();
+                    LocalDate fechan = LocalDate.of(2023-ran.nextInt(120),ran.nextInt(12)+1,ran.nextInt(28)+1);
+
+                    //Creación de la persona
+                    Persona person = new Persona(nombrem,apellido,dni,"", fechan, (Direcciones) dire);
+                    personas.add(person);
                 }else {
+                    //Nombre y apellidos
                     String nombreh = this.nom_hom.get(dado.nextInt(nom_hom.size()));
                     String apellido = this.apellidos.get(dado.nextInt(apellidos.size()));
-                    Direccion direc = direcs.get(dado.nextInt(direcs.size()));
+
+                    List<Direccion> dire = new ArrayList<>(dado.nextInt(3));
+                    for (int j = 0; j < dire.size(); j++) {
+                        dire.add(direcs.get(dado.nextInt(direcs.size())));
+                    }
+                    //Direccion direc = direcs.get(dado.nextInt(direcs.size()));
+
+                    //Creación dni
+                    int numdni = dado.nextInt(10000000);
+                    String dni = Integer.toString(numdni) + calcularletra(numdni);
+
+                    //Creación fecha de nacimiento
+                    Random ran = new Random();
+                    LocalDate fechan = LocalDate.of(2023-ran.nextInt(120),ran.nextInt(13),ran.nextInt(32));
+
+                    //Creación de la persona
+                    Persona person = new Persona(nombreh,apellido,dni,"", fechan, (Direcciones) dire);
+                    personas.add(person);
                 }
             }
 
