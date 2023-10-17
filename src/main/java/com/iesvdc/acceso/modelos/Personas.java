@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Personas {
     private List<Persona> personas;
@@ -38,7 +39,7 @@ public class Personas {
             List<Direccion> direcs = direcc.getDirecciones();
             Random dado = new Random();
             for (int i = 0; i < num_perso; i++) {
-                if (dado.nextInt(2) == 0){
+                if (dado.nextInt(2) == 0){ //También lo podemos hacer con (ThreadLocalRandom.current().nextInt(2) == 0), junto con los nombres y apellidos
                     //Nombre y apellidos
                     String nombrem = this.nom_muj.get(dado.nextInt(nom_muj.size()));
                     String apellido = this.apellidos.get(dado.nextInt(apellidos.size()));
@@ -56,6 +57,12 @@ public class Personas {
                     //Creación fecha de nacimiento
                     Random ran = new Random();
                     LocalDate fechan = LocalDate.of(2023-ran.nextInt(120),ran.nextInt(12)+1,ran.nextInt(28)+1);
+
+                    /*Otra forma para crear la fecha,
+                      con el número de días entre 1-1-1923 y hoy
+                    long diaMin = LocalDate.of(1923,1,1).toEpochDay();
+                    long diaMax = LocalDate.of(2023,10,17).toEpochDay();
+                    LocalDate fn = LocalDate.ofEpochDay(ThreadLocalRandom.current().nextLong(diaMin,diaMax));*/
 
                     //Creación de la persona
                     Persona person = new Persona(nombrem,apellido,dni,"", fechan, (Direcciones) dire);
