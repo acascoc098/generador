@@ -4,7 +4,12 @@ import java.rmi.server.ServerRef;
 import java.time.LocalDate;
 import java.util.List;
 
-//@XmllRootElement(name = "personas")
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "personas")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Persona{
     private String nombre;
     private String apellido1;
@@ -12,6 +17,8 @@ public class Persona{
     private String email;
     private LocalDate fechanaci;
     private List<Direccion> direcciones;
+
+    public Persona(){}
 
     public Persona(String nombre, String apellido1, String dni, String email, LocalDate fechanaci, Direcciones direcciones) {
         this.nombre = nombre;

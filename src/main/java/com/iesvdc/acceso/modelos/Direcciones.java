@@ -15,10 +15,13 @@ public class Direcciones {
 
     public Direcciones() {
         direcciones = new ArrayList<Direccion>();
+        this.locals = new Localidades();
     }
 
     public Direcciones(List<Direccion> direcciones) {
         this.direcciones = direcciones;
+        direcciones = new ArrayList<Direccion>();
+        this.locals = new Localidades();
     }
 
     public  void addD(Direccion d){
@@ -28,10 +31,11 @@ public class Direcciones {
     public void load(String locals_filename,String calles_filename){
         try{
             this.calles = Files.readAllLines(Paths.get(calles_filename));
-            this.locals = new Localidades();
+            //this.locals = new Localidades();
             locals.load(locals_filename);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            //throw new RuntimeException(e);
         }
     }
 

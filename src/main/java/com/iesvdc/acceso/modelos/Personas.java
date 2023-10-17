@@ -20,7 +20,6 @@ public class Personas {
     private Direcciones direcc;
 
     public  Personas(){
-        this.personas = new ArrayList<Persona>();
     }
     public Personas(List<Persona> personas, List<String> nom_muj, List<String> nom_hom, List<String> apellidos, Direcciones direcc) {
         this.personas = personas;
@@ -28,6 +27,7 @@ public class Personas {
         this.nom_hom = nom_hom;
         this.apellidos = apellidos;
         this.direcc = direcc;
+        this.personas = new ArrayList<Persona>();
     }
 
     public void load(String nom_muj_filename, String nom_homb_filename, String apellido_filename, String locals_filename, String calles_filename){
