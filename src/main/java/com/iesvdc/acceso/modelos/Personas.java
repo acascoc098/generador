@@ -59,6 +59,7 @@ public class Personas {
 
                     //Creación de la persona
                     Persona person = new Persona(nombrem,apellido,dni,"", fechan, (Direcciones) dire);
+                    personas.add(person);
                 }else {
                     //Nombre y apellidos
                     String nombreh = this.nom_hom.get(dado.nextInt(nom_hom.size()));
@@ -80,6 +81,7 @@ public class Personas {
 
                     //Creación de la persona
                     Persona person = new Persona(nombreh,apellido,dni,"", fechan, (Direcciones) dire);
+                    personas.add(person);
                 }
             }
 
