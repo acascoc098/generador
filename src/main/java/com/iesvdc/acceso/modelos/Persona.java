@@ -4,6 +4,7 @@ import java.rmi.server.ServerRef;
 import java.time.LocalDate;
 import java.util.List;
 
+//@XmllRootElement(name = "personas")
 public class Persona{
     private String nombre;
     private String apellido1;
