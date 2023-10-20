@@ -36,7 +36,7 @@ public class Localidades {
     }
 
     public Localidad get(int index){
-        if(index > 0 && index < this.localidades.size()){
+        if(index >= 0 && index < this.localidades.size()){
             return localidades.get(index);
         }else{
             return null;
