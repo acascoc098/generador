@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class Direcciones {
@@ -64,5 +65,24 @@ public class Direcciones {
         this.direcciones = direcciones;
     }
     
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Direcciones)) {
+            return false;
+        }
+        Direcciones direcciones = (Direcciones) o;
+        return Objects.equals(direcciones, o);
+    }
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " direcciones='" + getDirecciones() + "'" +
+            "}";
+    }
+
 
 }
