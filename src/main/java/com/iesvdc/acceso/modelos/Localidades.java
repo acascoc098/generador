@@ -34,6 +34,14 @@ public class Localidades {
             this.localidades.add(loc);
         }
     }
+
+    public Localidad get(int index){
+        if(index > 0 && index < this.localidades.size()){
+            return localidades.get(index);
+        }else{
+            return null;
+        }
+    }
     /**
      * Carga las localidades de un archivo
      */
